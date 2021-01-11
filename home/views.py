@@ -6,9 +6,11 @@ def reg(request):
     return render(request,'regform.html')
 
 def preview(request):
-
+    e_name=request.POST.get('fname')
+    o_name = request.POST.get('oname')
+    print(e_name)
     return render(
         request,
         'preview.html',
-        #{'categories': categories, 'products': products}
+        {'e_name': e_name, 'o_name': o_name}
     )

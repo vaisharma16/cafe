@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
 
+<body>
+<form method="POST">
+{% csrf_token %}
+<p>name:{{e_name}}</p>
+<p>organization name:{{o_name}}</p>
+</form>
 </body>
 </html>
