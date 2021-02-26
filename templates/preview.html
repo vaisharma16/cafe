@@ -1,15 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Registration form</title>
 </head>
 
 <body>
-<form method="POST">
-{% csrf_token %}
-<p>name:{{e_name}}</p>
-<p>organization name:{{o_name}}</p>
-</form>
+
+    <h1>Preview</h1>
+
+
+
+{% for item in all %}
+   <p>Name:{{ item.fname }}</p>
+    <p>Organization:{{ item.oname }}</p>
+    <p>id:{{ item.emp_id }}</p>
+    <p>email:{{ item.email }}</p>
+    <p>mob:{{ item.mob }}</p><br/>
+    <img src="{{BASE_DIR}}{{ item.image.url }}" class="card-img-top" alt="Card image cap" height="100" width="100">
+    {{ item.image }}<br/>
+    <p>reg-id:{{ item.order_id }}</p><br/><br/>
+{% endfor %}
+
+<button class="btn btn--radius-2 btn--blue" type="preview">Submit</button>
+<p><a href="{% url 'register' %}"> edit</a></p>
+
 </body>
+
 </html>
